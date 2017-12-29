@@ -26,8 +26,8 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(natan):
-        natan = servidor.get_member_named('GoodMan215#5854')
-        await bot.add_roles(natan,discord.utils.get(server.roles, name='Deveria Estar Banido'))
+    natan = servidor.get_member_named('GoodMan215#5854')
+    await bot.add_roles(natan,discord.utils.get(server.roles, name='Deveria Estar Banido'))
 
 @bot.command()
 async def kicknatan():
