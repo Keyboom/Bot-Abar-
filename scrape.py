@@ -2,8 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 
 def get_image_src(word):
-    url = requests.get("https://www.google.com.br/search?q=%s&tbm=isch") % (word)
-    soup = BeautifulSoup(url.content, 'html.parser')
+    url = "https://www.google.com.br/search?q=%s&tbm=isch" % (word)
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
     html = list(soup.children)[1]
     body = list(html.children)[1]
     table = list(body.children)[4]
@@ -20,4 +21,4 @@ def get_image_src(word):
     a_img = list(first_td)[0]
     img_tag = list(a_img)[0]
     img_src = img_tag['src']
-    return img_src
+    return str(img_src)
